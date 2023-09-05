@@ -2,12 +2,11 @@ const apiHandler = (() => {
   const weatherApiUrlCurrent = "https://api.weatherapi.com/v1/current.json";
   const weatherApiUrlForecast = "https://api.weatherapi.com/v1/forecast.json";
   const apiKey = "5b67dd39869a4d9b8be85347230109";
-  let location = "London";
 
   let currentWeatherObj = null;
   let forecastWeatherObj = null;
 
-  const fetchCurrent = async () => {
+  const fetchCurrent = async (location) => {
     try {
       const url = `${weatherApiUrlCurrent}?key=${apiKey}&q=${location}&aqi=no`;
       const response = await fetch(url, { mode: "cors" });
@@ -18,7 +17,7 @@ const apiHandler = (() => {
     }
   };
 
-  const fetchForecast = async () => {
+  const fetchForecast = async (location) => {
     try {
       const url = `${weatherApiUrlForecast}?key=${apiKey}&q=${location}&days=3&aqi=no&alerts=no`;
       const response = await fetch(url, { mode: "cors" });
@@ -29,12 +28,16 @@ const apiHandler = (() => {
     }
   };
 
-  const init = async () => {
-    await fetchCurrent();
-    await fetchForecast();
+  const fetchWeather = async (givenLocation = "London") => {
+    let location = givenLocation;
+    await fetchCurrent(location);
+    await fetchForecast(location);
     console.log({ currentWeatherObj, forecastWeatherObj });
   };
 
-  init();
+  return {
+    fetchWeather,
+  };
 })();
-const url = `${weatherApiUrlCurrent}?key=${apiKey}&q=${location}&aqi=no`;
+
+export default apiHandler;
