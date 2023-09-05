@@ -24,7 +24,7 @@ const apiHandler = (() => {
       const weatherData = await response.json();
       forecastWeatherObj = weatherData.forecast;
     } catch (error) {
-      console.log(error);
+      console.log("Error: " + error);
     }
   };
 

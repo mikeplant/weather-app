@@ -13,7 +13,6 @@ const displayHandler = (() => {
 
   const handleInputSubmit = () => {
     apiHandler.fetchWeather(locationInput.value);
-    // console.log(locationInput.value);
   };
 
   bindEvents();

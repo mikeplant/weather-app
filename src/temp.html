@@ -6,8 +6,20 @@
     <title>Weather App</title>
   </head>
   <body>
-    <form id="location-form">
-      <input type="text" name="location-input" id="location-input" />
-    </form>
+    <main>
+      <form id="location-form">
+        <input type="text" name="location-input" id="location-input" />
+      </form>
+      <section id="current-weather">
+        <div id="current-img-div">
+          <img src="./img/sunny.png" alt="" />
+        </div>
+        <div id="current-info-container">
+          <div class="current-info">Temp: <span>20&deg</span></div>
+          <div class="current-info">Feels like: <span>20&deg</span></div>
+          <div class="current-info">Rain Chance: <span>2%</span></div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
