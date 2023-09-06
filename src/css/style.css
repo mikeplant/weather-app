@@ -1,5 +1,11 @@
+@font-face {
+  font-family: "Raleway";
+  src: url("../fonts/Raleway/Raleway-VariableFont_wght.ttf");
+}
+
 * {
   box-sizing: border-box;
+  font-family: "Raleway", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -9,7 +15,8 @@ body {
   grid-template-columns: 1fr 4fr 1fr;
   align-items: center;
   justify-items: center;
-  background-image: url("../img/leaves.webp");
+  background-color: #22223b;
+  color: #f2e9e4;
 }
 
 main {
@@ -18,7 +25,6 @@ main {
   width: 100%;
   display: grid;
   justify-items: center;
-  /* flex-direction: column; */
 }
 
 input[type="text"] {
@@ -28,12 +34,22 @@ input[type="text"] {
   border-radius: 3px;
 }
 
+#location-container {
+  text-align: center;
+}
+
+#location-heading {
+  font-size: 2.8em;
+}
+
 #current-weather {
   height: 250px;
   width: 500px;
-  background-color: aquamarine;
+  background-color: #2d2d4f;
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px #252541;
 }
 
 #current-img-div {
@@ -45,7 +61,7 @@ input[type="text"] {
 }
 
 #current-img-div img {
-  content: url(../img/sunny.png);
+  content: url(../img/sunny.svg);
   height: 150px;
   width: 150px;
 }
@@ -55,5 +71,70 @@ input[type="text"] {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  padding-left: 15px;
+  font-size: 1.2em;
+}
+
+#forecast-container {
+  grid-row-start: 2;
+  grid-column: 1 / -1;
+  height: 220px;
+  width: 1400px;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  background-color: #2d2d4f;
+  border-radius: 5px;
+}
+
+#forecast-display {
+  height: 200px;
+  width: 1360px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#day-reel {
+  width: 1360px;
+  display: flex;
+  position: relative;
+  right: 0;
+}
+
+.forecast-day {
+  height: 180px;
+  min-width: 170px;
+  border: 1px solid #fff;
+  background-color: #22223b;
+}
+
+.forecast-day:nth-child(even) {
+  background-color: #000;
+}
+
+.hourly-left,
+.hourly-right {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  opacity: 0.3;
+}
+
+.hourly-left:hover,
+.hourly-right:hover {
+  cursor: pointer;
+}
+
+.hourly-left {
+  left: 0;
+}
+
+.hourly-right {
+  right: 0;
 }
