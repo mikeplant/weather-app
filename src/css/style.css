@@ -81,8 +81,10 @@ input[type="text"] {
   height: 220px;
   width: 1400px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 10px;
   background-color: #2d2d4f;
   border-radius: 5px;
 }
@@ -101,29 +103,67 @@ input[type="text"] {
   display: flex;
   position: relative;
   right: 0;
+  transition: right 300ms ease-in-out;
 }
 
-.forecast-day {
+.forecast-hour {
   height: 180px;
   min-width: 170px;
   border: 1px solid #fff;
   background-color: #22223b;
+  display: grid;
+  padding: 2px;
 }
 
-.forecast-day:nth-child(even) {
-  background-color: #000;
+.hour-time {
+  background-color: #1c1c30;
+  width: fit-content;
+  height: fit-content;
+  padding: 3px 5px 5px 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.hour-img {
+  content: url("../img/partcloud.svg");
+  height: 65px;
+  justify-self: center;
+  /* align-self: center; */
+}
+
+.hour-info {
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  /* gap: 8px; */
+}
+
+.hour-info-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hour-info-section:nth-child(2) {
+  border-left: 1px solid #ffffff8d;
+  border-right: 1px solid #ffffff8d;
+  padding: 0 8px 0 8px;
+  margin: 0 8px 0 8px;
+}
+
+.info-title {
+  padding-bottom: 16px;
 }
 
 .hourly-left,
 .hourly-right {
-  position: absolute;
-  height: 20px;
-  width: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #000;
-  opacity: 0.3;
+  padding: 12px;
+  height: 25px;
+  width: 85x;
+  background-color: #1c1c30;
+  top: -120px;
 }
 
 .hourly-left:hover,
@@ -133,8 +173,16 @@ input[type="text"] {
 
 .hourly-left {
   left: 0;
+  border-radius: 5px 0 5px 0;
 }
 
 .hourly-right {
   right: 0;
+  border-radius: 0 5px 0 5px;
+}
+
+#scroll-btns {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
