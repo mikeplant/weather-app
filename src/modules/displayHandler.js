@@ -1,4 +1,5 @@
 import apiHandler from "./apiHandler.js";
+import utilities from "./utilities.js";
 
 const displayHandler = (() => {
   const locationForm = document.querySelector("#location-form");
@@ -38,6 +39,11 @@ const displayHandler = (() => {
     countryEl.textContent = locationObj.country;
   };
 
+  const displayIcon = (code) => {
+    const currentImgDiv = document.querySelector("#current-img-div");
+    currentImgDiv.innerHTML = utilities.getIconSVG(code);
+  };
+
   const displayCurrentCondition = (condition) => {
     const currentCondition = document.querySelector(".current-condition");
     currentCondition.textContent = condition;
@@ -61,6 +67,7 @@ const displayHandler = (() => {
   const displayCurrent = () => {
     const currentWeatherObj = apiHandler.getForecast();
     displayLocation(currentWeatherObj.location);
+    displayIcon(currentWeatherObj.current.condition.code);
     displayCurrentCondition(currentWeatherObj.current.condition.text);
     displayCurrentTemp(currentWeatherObj.current.temp_c);
     displayCurrentFeelsLike(currentWeatherObj.current.feelslike_c);

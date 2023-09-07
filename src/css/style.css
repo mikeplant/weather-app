@@ -60,8 +60,7 @@ input[type="text"] {
   align-items: center;
 }
 
-#current-img-div img {
-  content: url(../img/sunny.svg);
+#current-img-div svg {
   height: 150px;
   width: 150px;
 }
@@ -87,6 +86,7 @@ input[type="text"] {
   gap: 10px;
   background-color: #2d2d4f;
   border-radius: 5px;
+  font-family: "Raleway", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #forecast-display {
@@ -113,6 +113,7 @@ input[type="text"] {
   background-color: #22223b;
   display: grid;
   padding: 2px;
+  font-size: 0.9rem;
 }
 
 .hour-time {
@@ -151,7 +152,7 @@ input[type="text"] {
 }
 
 .info-title {
-  padding-bottom: 16px;
+  padding-bottom: 12px;
 }
 
 .hourly-left,

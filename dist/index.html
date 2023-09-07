@@ -8,8 +8,91 @@
   <body>
     <main>
       <form id="location-form">
-        <input type="text" name="location-input" id="location-input" />
+        <input
+          type="text"
+          name="location-input"
+          id="location-input"
+          placeholder="Town, City, Region, etc..."
+        />
       </form>
+      <section id="location-container">
+        <h1 id="location-heading" class="city"></h1>
+        <h2 class="region"></h2>
+        <h3 class="country"></h3>
+      </section>
+      <section id="current-weather">
+        <div id="current-img-div">
+          <img id="current-img" src="" alt="" />
+        </div>
+        <div id="current-info-container">
+          <div class="current-info">
+            <span class="current-condition"></span>
+          </div>
+          <div class="current-info">
+            Temperature: <span class="current-temp"></span>&deg
+          </div>
+          <div class="current-info">
+            Feels like: <span class="current-feels-like"></span>&deg
+          </div>
+          <div class="current-info">
+            Precipitation: <span class="current-precip"></span>mm
+          </div>
+        </div>
+      </section>
     </main>
+    <section id="forecast-container">
+      <div id="scroll-btns">
+        <div class="hourly-left">last 8hr</div>
+        <div class="hourly-right">next 8hrs</div>
+      </div>
+      <div id="forecast-display">
+        <div id="day-reel">
+          <!-- First 8 -->
+          <div class="forecast-hour">
+            <h5 class="hour-time">12:00</h5>
+            <div class="hour-img"></div>
+            <div class="hour-info">
+              <div class="hour-info-section">
+                <p class="info-title">Temp</p>
+                <p>20&deg</p>
+              </div>
+              <div class="hour-info-section">
+                <p class="info-title">Feels</p>
+                <p>23&deg</p>
+              </div>
+              <div class="hour-info-section">
+                <p class="info-title">Rain</p>
+                <p>0mm</p>
+              </div>
+            </div>
+          </div>
+          <div class="forecast-hour"></div>
+          <div class="forecast-hour"></div>
+          <div class="forecast-hour"></div>
+          <div class="forecast-hour"></div>
+          <div class="forecast-hour"></div>
+          <div class="forecast-hour"></div>
+          <div class="forecast-hour"></div>
+          <!-- Second 8 -->
+          <div class="forecast-hour"></div>
+          <div class="forecast-hour"></div>
+          <div class="forecast-hour"></div>
+          <div class="forecast-hour"></div>
+          <div class="forecast-hour"></div>
+          <div class="forecast-hour"></div>
+          <div class="forecast-hour"></div>
+          <div class="forecast-hour"></div>
+          <!-- Third 8 -->
+          <div class="forecast-hour"></div>
+          <div class="forecast-hour"></div>
+          <div class="forecast-hour"></div>
+          <div class="forecast-hour"></div>
+          <div class="forecast-hour"></div>
+          <div class="forecast-hour"></div>
+          <div class="forecast-hour"></div>
+          <div class="forecast-hour"></div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
