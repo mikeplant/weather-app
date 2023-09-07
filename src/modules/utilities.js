@@ -73,7 +73,7 @@ const utilities = (() => {
 
     hourInfoDiv.append(
       createHourInfoSection("Temp", "hour-temp"),
-      createHourInfoSection("Feels", "hour-feels"),
+      createHourInfoSection("Feel", "hour-feels"),
       createHourInfoSection("Rain", "hour-rain")
     );
     topDiv.append(h5, imgDiv, hourInfoDiv);
