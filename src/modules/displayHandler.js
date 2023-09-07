@@ -64,6 +64,15 @@ const displayHandler = (() => {
     currentPrecip.textContent = precip;
   };
 
+  const displayHourly = (hours) => {
+    dayReel.innerHTML = "";
+    dayReel.style.right = "0px";
+    hours.forEach((hour) => {
+      const hourDiv = utilities.getHourEl(hour);
+      dayReel.append(hourDiv);
+    });
+  };
+
   const displayCurrent = () => {
     const currentWeatherObj = apiHandler.getForecast();
     displayLocation(currentWeatherObj.location);
@@ -72,6 +81,7 @@ const displayHandler = (() => {
     displayCurrentTemp(currentWeatherObj.current.temp_c);
     displayCurrentFeelsLike(currentWeatherObj.current.feelslike_c);
     displayCurrentPrecip(currentWeatherObj.current.precip_mm);
+    displayHourly(currentWeatherObj.forecast.forecastday[0].hour);
   };
 
   const updateWeather = async (location) => {

@@ -63,6 +63,7 @@ input[type="text"] {
 #current-img-div svg {
   height: 150px;
   width: 150px;
+  fill: #f2e9e4;
 }
 
 #current-info-container {
@@ -125,17 +126,13 @@ input[type="text"] {
 }
 
 .hour-img {
-  content: url("../img/partcloud.svg");
-  height: 65px;
   justify-self: center;
-  /* align-self: center; */
 }
 
 .hour-info {
   display: flex;
   justify-self: center;
   align-self: center;
-  /* gap: 8px; */
 }
 
 .hour-info-section {

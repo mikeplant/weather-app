@@ -58,8 +58,66 @@ const utilities = (() => {
     }
   };
 
+  const getHourEl = (data) => {
+    const topDiv = document.createElement("div");
+    topDiv.classList.add("forecast-hour");
+
+    const h5 = document.createElement("h5");
+    h5.classList.add("hour-time");
+
+    const imgDiv = document.createElement("div");
+    imgDiv.classList.add("hour-img");
+
+    const hourInfoDiv = document.createElement("div");
+    hourInfoDiv.classList.add("hour-info");
+
+    hourInfoDiv.append(
+      createHourInfoSection("Temp", "hour-temp"),
+      createHourInfoSection("Feels", "hour-feels"),
+      createHourInfoSection("Rain", "hour-rain")
+    );
+    topDiv.append(h5, imgDiv, hourInfoDiv);
+
+    populateHourInfoDiv(topDiv, data);
+
+    return topDiv;
+  };
+
+  const createHourInfoSection = (titleStr, infoClass) => {
+    const section = document.createElement("div");
+    section.classList.add("hour-info-section");
+
+    const title = document.createElement("p");
+    title.classList.add("info-title");
+    title.textContent = titleStr;
+
+    const info = document.createElement("p");
+    info.classList.add(infoClass);
+
+    section.append(title, info);
+    return section;
+  };
+
+  const populateHourInfoDiv = (div, data) => {
+    const img = div.querySelector(".hour-img");
+    img.innerHTML = getIconSVG(data.condition.code);
+
+    const hourDisplay = div.querySelector(".hour-time");
+    hourDisplay.textContent = data.time.slice(-5);
+
+    const hourTemp = div.querySelector(".hour-temp");
+    hourTemp.innerHTML = Math.trunc(data.temp_c) + "&deg";
+
+    const hourFeels = div.querySelector(".hour-feels");
+    hourFeels.innerHTML = Math.trunc(data.feelslike_c) + "&deg";
+
+    const hourRain = div.querySelector(".hour-rain");
+    hourRain.innerHTML = data.chance_of_rain + "%";
+  };
+
   return {
     getIconSVG,
+    getHourEl,
   };
 })();
 
