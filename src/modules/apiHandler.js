@@ -6,14 +6,12 @@ const apiHandler = (() => {
   let forecastWeatherObj = null;
 
   const fetchWeather = async (location = "London") => {
-    try {
-      const url = `${weatherApiUrlForecast}?key=${apiKey}&q=${location}&days=3&aqi=no&alerts=no`;
-      const response = await fetch(url, { mode: "cors" });
-      const weatherData = await response.json();
-      forecastWeatherObj = weatherData;
-    } catch (error) {
-      console.log("Error: " + error);
-    }
+    const url = `${weatherApiUrlForecast}?key=${apiKey}&q=${location}&days=3&aqi=no&alerts=no`;
+    const response = await fetch(url, { mode: "cors" });
+    const weatherData = await response.json();
+    if (weatherData.error)
+      console.log("Fetch error: ", weatherData.error.message);
+    forecastWeatherObj = weatherData;
   };
 
   const getForecast = () => forecastWeatherObj;

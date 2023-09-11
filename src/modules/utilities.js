@@ -115,9 +115,27 @@ const utilities = (() => {
     hourRain.innerHTML = data.chance_of_rain + "%";
   };
 
+  const isSearchEmpty = (term) => {
+    return term == "" ? true : false;
+  };
+
+  const isLocationValid = (obj) => {
+    return obj.error ? false : true;
+  };
+
+  const searchValid = (obj) => {
+    if (isSearchEmpty() === false && isLocationValid(obj) === true) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   return {
     getIconSVG,
     getHourEl,
+    isSearchEmpty,
+    isLocationValid,
   };
 })();
 

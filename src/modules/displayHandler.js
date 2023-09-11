@@ -1,10 +1,12 @@
 import apiHandler from "./apiHandler.js";
 import utilities from "./utilities.js";
+import format from "date-fns/format";
 
 const displayHandler = (() => {
   const body = document.querySelector("body");
   const locationForm = document.querySelector("#location-form");
   const locationInput = document.querySelector("#location-input");
+  const invalidSearchEl = document.querySelector(".invalid-search");
   const nextHourly = document.querySelector(".hourly-right");
   const lastHourly = document.querySelector(".hourly-left");
   const dayReel = document.querySelector("#day-reel");
@@ -13,10 +15,22 @@ const displayHandler = (() => {
   const bindEvents = () => {
     locationForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      updateWeather(locationInput.value);
+      handleSearchSubmit();
     });
     nextHourly.addEventListener("click", () => scrollHourForecastForwards());
     lastHourly.addEventListener("click", () => scrollHourForecastBackwards());
+  };
+
+  const handleSearchSubmit = () => {
+    hideSearchError();
+
+    const search = locationInput.value.trim();
+    if (utilities.isSearchEmpty(search)) {
+      showSearchError();
+      return;
+    }
+    updateWeather(search);
+    clearSearchBar();
   };
 
   const scrollHourForecastForwards = () => {
@@ -31,6 +45,18 @@ const displayHandler = (() => {
     dayReel.style.right = hourForecastPos + "px";
   };
 
+  const clearSearchBar = () => {
+    locationInput.value = "";
+  };
+
+  const hideSearchError = () => {
+    invalidSearchEl.classList.add("hidden");
+  };
+
+  const showSearchError = () => {
+    invalidSearchEl.classList.remove("hidden");
+  };
+
   const displayLocation = (locationObj) => {
     const cityEl = document.querySelector(".city");
     const regionEl = document.querySelector(".region");
@@ -39,7 +65,10 @@ const displayHandler = (() => {
     cityEl.textContent = locationObj.name;
     regionEl.textContent = locationObj.region;
     countryEl.textContent = locationObj.country;
-    localTime.textContent = locationObj.localtime.slice(-5);
+    localTime.textContent = `${format(
+      new Date(locationObj.localtime),
+      "PPPp"
+    )} `;
   };
 
   const displayIcon = (code) => {
@@ -133,6 +162,13 @@ const displayHandler = (() => {
     dimOnLoad();
 
     const currentWeatherObj = apiHandler.getForecast();
+
+    if (!utilities.isLocationValid(currentWeatherObj)) {
+      showSearchError();
+      undimOnLoaded();
+      return;
+    }
+
     displayLocation(currentWeatherObj.location);
     displayIcon(currentWeatherObj.current.condition.code);
     displayCurrentCondition(currentWeatherObj.current.condition.text);
@@ -162,6 +198,7 @@ const displayHandler = (() => {
   const updateWeather = async (location) => {
     await apiHandler.fetchWeather(location);
     displayCurrent();
+    hourForecastPos = 0;
   };
 
   bindEvents();
