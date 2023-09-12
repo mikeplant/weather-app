@@ -6,115 +6,131 @@
     <title>Weather App</title>
   </head>
   <body>
-    <form id="location-form">
-      <input
-        type="text"
-        name="location-input"
-        id="location-input"
-        placeholder="Town, City, Region, etc..."
-      />
-      <span class="invalid-search hidden">
-        Please enter a valid town, city, region or country
-      </span>
-    </form>
-    <main>
-      <section id="location-container">
-        <h1 id="location-heading" class="city"></h1>
-        <h2 class="region"></h2>
-        <h3 class="country"></h3>
-        <h3 class="local-time"></h3>
-      </section>
-      <section id="current-weather">
-        <div id="current-img-div"></div>
-        <div id="current-info-container">
-          <div class="current-info">
-            <span class="current-condition"></span>
+    <div class="container">
+      <form id="location-form">
+        <input
+          type="text"
+          name="location-input"
+          id="location-input"
+          placeholder="Town, City, Region, etc..."
+        />
+        <span class="invalid-search hidden">
+          Please enter a valid town, city, region or country
+        </span>
+      </form>
+      <main>
+        <section id="location-container">
+          <h1 id="location-heading" class="city"></h1>
+          <h2 class="region"></h2>
+          <h3 class="country"></h3>
+          <h3 class="local-time"></h3>
+        </section>
+        <section id="current-weather">
+          <div id="current-img-div"></div>
+          <div class="current-info-container">
+            <div class="current-info">
+              <span class="current-condition"></span>
+            </div>
+            <div class="current-info">
+              Temperature<br />
+              <span class="current-temp"></span>&deg
+            </div>
+            <div class="current-info">
+              Feels like<br />
+              <span class="current-feels-like"></span>&deg
+            </div>
+            <div class="current-info">
+              Precipitation<br />
+              <span class="current-precip"></span><span class="small">mm</span>
+            </div>
           </div>
-          <div class="current-info">
-            Temperature<br />
-            <span class="current-temp"></span>&deg
+        </section>
+      </main>
+      <section class="more-info-container">
+        <div class="wind-info more-info-div">
+          <svg
+            class="more-info-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24"
+            viewBox="0 -960 960 960"
+            width="24"
+          >
+            <path
+              d="M460-160q-50 0-85-35t-35-85h80q0 17 11.5 28.5T460-240q17 0 28.5-11.5T500-280q0-17-11.5-28.5T460-320H80v-80h380q50 0 85 35t35
+              85q0 50-35 85t-85 35ZM80-560v-80h540q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43h-80q0-59 40.5-99.5T620-840q59 0
+               99.5 40.5T760-700q0 59-40.5 99.5T620-560H80Zm660 320v-80q26 0 43-17t17-43q0-26-17-43t-43-17H80v-80h660q59 0 99.5 40.5T880-380q0 59-40.5 99.5T740-240Z"
+            />
+          </svg>
+          <div class="more-info-inner">
+            <div>
+              Wind Speed:
+              <div class="info">
+                <span class="wind-speed"></span><span class="small">mph</span>
+              </div>
+            </div>
+            <div>
+              Gusts:
+              <div class="info">
+                <span class="gust-speed"></span><span class="small">mph</span>
+              </div>
+            </div>
+            <div>Direction:<span class="wind-direction info"></span></div>
           </div>
-          <div class="current-info">
-            Feels like<br />
-            <span class="current-feels-like"></span>&deg
+        </div>
+        <div class="more-info-div">
+          <svg
+            class="more-info-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24"
+            viewBox="0 -960 960 960"
+            width="24"
+          >
+            <path
+              d="m734-556-56-58 86-84 56 56-86 86ZM80-160v-80h800v80H80Zm360-520v-120h80v120h-80ZM226-558l-84-86 56-56 86 86-58 56Zm71 158h366q-23-54-72-87t-111-33q-62 0-111 33t-72
+              87Zm-97 80q0-117 81.5-198.5T480-600q117 0 198.5 81.5T760-320H200Zm280-80Z"
+            />
+          </svg>
+          <div class="more-info-inner">
+            <div>Sunrise: <span class="sunrise info"></span></div>
+            <div>Sunset: <span class="sunset info"></span></div>
+            <div>Moon Phase: <span class="moon-phase info"></span></div>
           </div>
-          <div class="current-info">
-            Precipitation<br />
-            <span class="current-precip"></span>mm
+        </div>
+        <div class="more-info-div">
+          <svg
+            class="more-info-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24"
+            viewBox="0 -960 960 960"
+            width="24"
+          >
+            <path
+              d="M80-240v-80q38 0 56.5-20t77.5-20q59 0 77.5 20t54.5 20q38 0 56.5-20t77.5-20q57 0 77.5 20t56.5 20q38 0 55.5-20t76.5-20q59 0 77.5 20t56.5 20v80q-57 0-77.5-20T746-280q-36 0-54.5
+              20T614-240q-57 0-77.5-20T480-280q-38 0-56.5 20T346-240q-59 0-76.5-20T214-280q-38 0-56.5 20T80-240Zm0-160v-80q38 0 56.5-20t77.5-20q57 0 76.5 20t55.5 20q38 0 56.5-20t77.5-20q57 0 77 20t55 20q38 0 56.5-20t77.5-20q57 0 77.5 20t56.5 20v80q-59
+              0-78.5-20T746-440q-36 0-54.5 20T614-400q-57 0-77.5-20T480-440q-38 0-55.5 20T348-400q-59 0-78.5-20T214-440q-36 0-56.5 20T80-400Zm0-160v-80q38 0 56.5-20t77.5-20q57 0 76.5 20t55.5 20q38 0 56.5-20t77.5-20q57 0 77 20t55 20q38 0 56.5-20t77.5-20q57
+              0 77.5 20t56.5 20v80q-59 0-78.5-20T746-600q-36 0-54.5 20T614-560q-57 0-77.5-20T480-600q-38 0-55.5 20T348-560q-59 0-78.5-20T214-600q-36 0-56.5 20T80-560Z"
+            />
+          </svg>
+          <div class="more-info-inner">
+            <div>
+              Visibility:
+              <div class="info"><span class="visibility"></span></div>
+              <span class="small">mi</span>
+            </div>
+            <div>Humidity: <span class="humidity info"></span></div>
+            <div>UV Level: <span class="uv-level info"></span></div>
           </div>
         </div>
       </section>
-    </main>
-    <section id="more-info-container">
-      <div class="wind-info more-info-div">
-        <svg
-          class="more-info-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24"
-          viewBox="0 -960 960 960"
-          width="24"
-        >
-          <path
-            d="M460-160q-50 0-85-35t-35-85h80q0 17 11.5 28.5T460-240q17 0 28.5-11.5T500-280q0-17-11.5-28.5T460-320H80v-80h380q50 0 85 35t35 
-            85q0 50-35 85t-85 35ZM80-560v-80h540q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43h-80q0-59 40.5-99.5T620-840q59 0
-             99.5 40.5T760-700q0 59-40.5 99.5T620-560H80Zm660 320v-80q26 0 43-17t17-43q0-26-17-43t-43-17H80v-80h660q59 0 99.5 40.5T880-380q0 59-40.5 99.5T740-240Z"
-          />
-        </svg>
-        <div class="more-info-inner">
-          <div>Wind Speed: <span class="wind-speed"></span></div>
-          <div>Gusts: <span class="gust-speed"></span></div>
-          <div>Direction: <span class="wind-direction"></span></div>
+      <section id="forecast-container">
+        <div id="scroll-btns">
+          <div class="hourly-left">last 8hr</div>
+          <div class="hourly-right">next 8hrs</div>
         </div>
-      </div>
-      <div class="more-info-div">
-        <svg
-          class="more-info-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24"
-          viewBox="0 -960 960 960"
-          width="24"
-        >
-          <path
-            d="m734-556-56-58 86-84 56 56-86 86ZM80-160v-80h800v80H80Zm360-520v-120h80v120h-80ZM226-558l-84-86 56-56 86 86-58 56Zm71 158h366q-23-54-72-87t-111-33q-62 0-111 33t-72 
-            87Zm-97 80q0-117 81.5-198.5T480-600q117 0 198.5 81.5T760-320H200Zm280-80Z"
-          />
-        </svg>
-        <div class="more-info-inner">
-          <div>Sunrise: <span class="sunrise"></span></div>
-          <div>Sunset: <span class="sunset"></span></div>
-          <div>Moon Phase: <span class="moon-phase"></span></div>
+        <div id="forecast-display">
+          <div id="day-reel"></div>
         </div>
-      </div>
-      <div class="more-info-div">
-        <svg
-          class="more-info-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24"
-          viewBox="0 -960 960 960"
-          width="24"
-        >
-          <path
-            d="M80-240v-80q38 0 56.5-20t77.5-20q59 0 77.5 20t54.5 20q38 0 56.5-20t77.5-20q57 0 77.5 20t56.5 20q38 0 55.5-20t76.5-20q59 0 77.5 20t56.5 20v80q-57 0-77.5-20T746-280q-36 0-54.5 
-            20T614-240q-57 0-77.5-20T480-280q-38 0-56.5 20T346-240q-59 0-76.5-20T214-280q-38 0-56.5 20T80-240Zm0-160v-80q38 0 56.5-20t77.5-20q57 0 76.5 20t55.5 20q38 0 56.5-20t77.5-20q57 0 77 20t55 20q38 0 56.5-20t77.5-20q57 0 77.5 20t56.5 20v80q-59 
-            0-78.5-20T746-440q-36 0-54.5 20T614-400q-57 0-77.5-20T480-440q-38 0-55.5 20T348-400q-59 0-78.5-20T214-440q-36 0-56.5 20T80-400Zm0-160v-80q38 0 56.5-20t77.5-20q57 0 76.5 20t55.5 20q38 0 56.5-20t77.5-20q57 0 77 20t55 20q38 0 56.5-20t77.5-20q57 
-            0 77.5 20t56.5 20v80q-59 0-78.5-20T746-600q-36 0-54.5 20T614-560q-57 0-77.5-20T480-600q-38 0-55.5 20T348-560q-59 0-78.5-20T214-600q-36 0-56.5 20T80-560Z"
-          />
-        </svg>
-        <div class="more-info-inner">
-          <div>Visibility: <span class="visibility"></span></div>
-          <div>Humidity: <span class="humidity"></span></div>
-          <div>UV Level: <span class="uv-level"></span></div>
-        </div>
-      </div>
-    </section>
-    <section id="forecast-container">
-      <div id="scroll-btns">
-        <div class="hourly-left">last 8hr</div>
-        <div class="hourly-right">next 8hrs</div>
-      </div>
-      <div id="forecast-display">
-        <div id="day-reel"></div>
-      </div>
-    </section>
+      </section>
+    </div>
   </body>
 </html>

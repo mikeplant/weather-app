@@ -98,12 +98,12 @@ const displayHandler = (() => {
 
   const displayWindSpeed = (speed) => {
     const windSpeed = document.querySelector(".wind-speed");
-    windSpeed.textContent = speed + "mph";
+    windSpeed.textContent = speed;
   };
 
   const displayGustSpeed = (speed) => {
     const gustSpeed = document.querySelector(".gust-speed");
-    gustSpeed.textContent = speed + "mph";
+    gustSpeed.textContent = speed;
   };
 
   const displayWindDirection = (dir) => {
@@ -128,7 +128,7 @@ const displayHandler = (() => {
 
   const displayVisibility = (val) => {
     const vis = document.querySelector(".visibility");
-    vis.textContent = val + "mi";
+    vis.textContent = val;
   };
 
   const displayHumidity = (val) => {
